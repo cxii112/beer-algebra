@@ -33,7 +33,10 @@ jobs:
       # - uses: softprops/action-gh-release@v1
       #   with:
       #     files: beer-algebra.pdf
-      - uses: meeDamian/github-release@2.0
+      - uses: svenstaro/upload-release-action@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          files: beer-algebra.pdf
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: beer-algebra.pdf
+          asset_name: beer-algebra
+          tag: ${{ github.ref }}
+          overwrite: true
