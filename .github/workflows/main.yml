@@ -18,24 +18,13 @@ jobs:
           post_compile: "latexmk -c"
           extra_fonts: ./resources/fonts/*.ttf
   
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: softprops/action-gh-release@v1
-        with:
-          files: beer-algebra.pdf
-
   upload:
     runs-on: ubuntu-latest
+    permissions: write
     needs: [build]
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v3
-      # - run: mkdir -p path/to/artifact
-      # - run: echo hello > path/to/artifact/world.txt
-      - uses: actions/upload-artifact@v3
-        with:
-          name: beer-algebra.pdf
-          path: .
+    - uses: actions/checkout@v3
+    - uses: actions/upload-artifact@v3
+      with:
+        name: beer-algebra
+        path: ./beer-algebra.pdf
