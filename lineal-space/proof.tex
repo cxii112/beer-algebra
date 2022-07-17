@@ -1,0 +1,95 @@
+\subsection*{Доказательство}
+\begin{align*}
+    \text{Из } (\ref{set_def}) \text{ и } (\ref{plus_def}) \text{ получим:} \\
+    l_x + l_y \in \mathbb{R}                                                \\
+    m_x + m_y \in \mathbb{R}
+\end{align*}
+
+\begin{align*}
+    \text{Из } (\ref{set_def}) \text{ и } (\ref{multiply_def}) \text{ получим:} \\
+    \alpha l \in \mathbb{R}                                                     \\
+    \alpha m \in \mathbb{R}
+\end{align*}
+
+Таким образом, \textit{"смешивание"} является алгебраической операцией.
+
+\subsubsection*{Аксиомы}
+Теперь проверим аксиомы линейного пространства.
+
+\begin{enumerate}
+    \item {
+          $\forall x, y \in B: x + y  = y + x$
+          \begin{align*}
+              \left(l_x + l_y, m_x + m_y\right) = \left(l_y + l_x, m_y + m_x\right)
+          \end{align*}
+          }
+    \item {
+          $\forall x,y,z \in B: x + (y + z) = (x + y) + z$
+          \begin{align*}
+              \left(l_x, m_x\right) + \left(l_y + l_z, m_y + m_z\right) = \\
+              =\left(l_x + (l_y + l_z), m_x + (m_y + m_z)\right) =        \\
+              =\left(l_x + l_y + l_z, m_x + m_y + m_z\right)
+          \end{align*}
+          \begin{align*}
+              \left(l_x + l_y, m_x + m_y\right) + \left(l_z, m_z\right) = \\
+              =\left((l_x + l_y) + l_z, (m_x + m_y) + m_z\right) =        \\
+              =\left(l_x + l_y + l_z, m_x + m_y + m_z\right)
+          \end{align*}
+          }
+    \item {
+          $(\exists \theta \in B)(\forall x \in B): x + \theta = \theta + x = x$
+          \begin{align*}
+              \text{Пусть }\theta = (0, 0)\text{, тогда}       \\
+              ( l,m) + (0, 0) = \left(l+0,m + 0\right) = (l,m) \\
+              (0,0) + (l,m) = \left(0+l,0 + m\right) = (l,m)
+          \end{align*}
+          }
+    \item {
+          $\forall x \in B \; \exists (-x) \in B:x+(-x)=(-x)+x=\theta$
+          \begin{align*}
+              \text{Пусть }x = (l,m), -x = (l, m)\text{, тогда} \\
+              (l,m_x) + (-l,-m_x) =(0,0)                        \\
+              (-l,-m_x) + (l,m_x) =(0,0)
+          \end{align*}
+          }
+    \item {
+          $\forall x \in B \; \forall \alpha, \beta \in \mathbb{R}:\alpha(x\beta)=(\alpha x)\beta$
+          \begin{align*}
+              (\alpha(l,m))\beta=(\alpha l, \alpha m)\beta = (\alpha l \beta,\alpha m \beta) \\
+              \alpha((l,m)\beta)=\alpha (l \beta, m\beta) = (\alpha l \beta,\alpha m\beta)
+          \end{align*}
+          }
+    \item {
+          $1\in \mathbb{R}\;\forall x \in B: 1x = x$
+          \begin{align*}
+              1(l,m) = (1l,1m) = (l,m)
+          \end{align*}
+          }
+    \item {
+          $\forall x,y \in B \; \forall \alpha \in \mathbb{R}:\alpha(x+y)=\alpha x + \alpha y$
+          \begin{align*}
+              \alpha\left((l_x,m_x) + (l_y, m_y)\right)=           \\
+              =\alpha\left(l_x + l_y, m_x + m_y\right)=            \\
+              =\left(\alpha(l_x + l_y), \alpha (m_x + m_y)\right)= \\
+              =\left(\alpha l_x + \alpha l_y, \alpha m_x + \alpha m_y\right)
+          \end{align*}
+          \begin{align*}
+              \alpha(l_x,m_x) + \alpha(l_y, m_y)=                    \\
+              =(\alpha l_x, \alpha m_x) + (\alpha l_y, \alpha m_y) = \\
+              =(\alpha l_x + \alpha l_y, \alpha m_x + \alpha m_y)
+          \end{align*}
+          }
+    \item {
+          $\forall x \in B \; \forall \alpha,\beta \in \mathbb{R} : x(\alpha + \beta) = x\alpha + x\beta$
+          \begin{align*}
+              (l,m)(\alpha + \beta) = (l(\alpha + \beta),m(\alpha + \beta))= \\
+              =(l\alpha + l\beta,m\alpha + m\beta)
+          \end{align*}
+          \begin{align*}
+              (l,m)\alpha + (l,m)\beta =               \\
+              = (l\alpha, m\alpha) + (l\beta, m\beta)= \\
+              =(l\alpha + l\beta,m\alpha + m\beta)
+          \end{align*}
+          }
+\end{enumerate}
+\textbf{Множество пива $B$ - линейное пространство.}

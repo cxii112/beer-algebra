@@ -1,0 +1,49 @@
+\documentclass{article}
+% \usepackage[style=authoryear,backend=biber]{biblatex}
+
+\usepackage[a4paper, margin=1.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage[main=russian, english]{babel}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+% \usepackage{amsfonts}
+%%xelatex
+\usepackage{fontspec}
+% \setmainfont[
+  %       Path=./resources/fonts/Nunito/,
+  %       Scale=1,
+  %       Extension= .ttf,
+  %       UprightFont=*-ExtraLight,
+  %       BoldFont=*-Regular,
+  %       ItalicFont=*-ExtraLightItalic,
+  %       BoldItalicFont=*-RegularItalic
+  %       ]{Nunito}
+  \setmainfont{resources/fonts/Nunito/Nunito-VariableFont_wght.ttf}
+  % \setmainfont{Arial}
+  % \usepackage[math]{mathspec}
+  % \setmathsf{Fira Math}
+
+  % %%pdflatex
+  % \usepackage[utf8]{inputenc}
+% \usepackage{substitutefont}
+% \usepackage{ae}
+% \usepackage{aeguill}
+% \usepackage[T2A, T1]{fontenc}
+
+
+\title{Алгебра пива}
+\author{Дмитрий Ляховой}
+
+\begin{document}
+  \maketitle
+  \input{abstract.tex}
+  \input{set.tex}
+  \input{lineal-space/linear-space.tex}
+  \input{dot-product/dot-product.tex}
+  \input{result.tex}
+  \input{notice.tex}
+\end{document}
+\nocite{*}
