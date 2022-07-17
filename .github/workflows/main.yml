@@ -30,13 +30,9 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: beer-algebra
-      # - uses: softprops/action-gh-release@v1
-      #   with:
-      #     files: beer-algebra.pdf
-      - uses: svenstaro/upload-release-action@v2
+      - uses: softprops/action-gh-release@v1
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: beer-algebra.pdf
-          asset_name: beer-algebra
-          tag: ${{ github.ref }}
-          overwrite: true
+          body_path: README.md
+          files: |
+            beer-algebra.pdf
+            README.md
