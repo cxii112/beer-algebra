@@ -20,7 +20,7 @@ jobs:
   
   upload:
     runs-on: ubuntu-latest
-    permissions: write
+    # permissions: write
     needs: [build]
     steps:
     - uses: actions/checkout@v3
