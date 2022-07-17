@@ -1,0 +1,92 @@
+\subsection*{Доказательство}
+\begin{enumerate}
+  \item {
+        $\forall x, y \in B : (x,y) = (y,x)$
+        \begin{align*}
+          x^T \Gamma y = y^T \Gamma x
+        \end{align*}
+        \begin{align*}
+          \begin{pmatrix}l_x & m_x\end{pmatrix}
+          \mtx
+          \begin{pmatrix}l_y\\m_y\end{pmatrix}= \\
+          \begin{pmatrix}\mtxa l_x & \mtxb m_x\end{pmatrix}
+          \begin{pmatrix}l_y\\m_y\end{pmatrix}= \\
+          \mtxa l_xl_y + \mtxb m_xm_y
+        \end{align*}
+        \begin{align*}
+          \begin{pmatrix}l_y & m_y\end{pmatrix}
+          \mtx
+          \begin{pmatrix}l_x\\m_x\end{pmatrix}= \\
+          \begin{pmatrix}\mtxa l_y & \mtxb m_y\end{pmatrix}
+          \begin{pmatrix}l_x\\m_x\end{pmatrix}= \\
+          \mtxa l_yl_x + \mtxb m_ym_x
+        \end{align*}
+        }
+  \item {
+        $\forall x,y \in B \; \forall \alpha \in \mathbb{R}:(\alpha x, y)= \alpha(x,y)$
+        \begin{align*}
+          (ax)^T \Gamma y = \alpha x^T \Gamma y
+        \end{align*}
+        \begin{align*}
+          \alpha\begin{pmatrix}l_x & m_x\end{pmatrix}
+          \mtx
+          \begin{pmatrix}l_y\\m_y\end{pmatrix}=     \\
+          =\alpha\begin{pmatrix}\mtxa l_x & \mtxb m_x\end{pmatrix}
+          \begin{pmatrix}l_y\\m_y\end{pmatrix}=     \\
+          =\alpha(\mtxa l_xl_y + \mtxb m_xm_y)=     \\
+          =\alpha\mtxa l_xl_y + \alpha\mtxb m_xm_y= \\
+          =\begin{pmatrix}\alpha\mtxa l_x & \alpha \mtxb m_x\end{pmatrix}
+          \begin{pmatrix}l_y\\m_y\end{pmatrix}=     \\
+          =\begin{pmatrix}\alpha l_x & \alpha m_x\end{pmatrix}
+          \mtx
+          \begin{pmatrix}l_y\\m_y\end{pmatrix}
+        \end{align*}
+        }
+  \item {
+        $\forall x,y,z \in B : (x+y,z)=(x,z)+(y,z)$
+        \begin{align*}
+          \ \begin{pmatrix}l_x + l_y & m_x + m_y\end{pmatrix}
+          \mtx
+          \begin{pmatrix}l_z \\ m_z\end{pmatrix}=     \\
+          =\begin{pmatrix}\mtxa(l_x + l_y) & \mtxb(m_x + m_y)\end{pmatrix}
+          \begin{pmatrix}l_z \\ m_z\end{pmatrix}=     \\
+          =\mtxa(l_x + l_y)l_z + \mtxb(m_x + m_y)m_z= \\
+          =\mtxa l_xl_z + \mtxb m_xm_z + \mtxa l_yl_z + \mtxb m_ym_z
+        \end{align*}
+        \begin{align*}
+          \ \begin{pmatrix}l_x & m_x\end{pmatrix}
+          \mtx
+          \begin{pmatrix}l_z \\ m_z\end{pmatrix} +
+          \begin{pmatrix}l_y & m_y\end{pmatrix}
+          \mtx
+          \begin{pmatrix}l_z \\ m_z\end{pmatrix}= \\
+          =\begin{pmatrix}\mtxa l_x & \mtxb m_x\end{pmatrix}
+          \begin{pmatrix}l_z \\ m_z\end{pmatrix} +
+          \begin{pmatrix}\mtxa l_y & \mtxb m_y\end{pmatrix}
+          \begin{pmatrix}l_z \\ m_z\end{pmatrix}= \\
+          =\mtxa l_xl_z + \mtxb m_xm_z + \mtxa l_yl_z + \mtxb m_ym_z
+        \end{align*}
+        }
+  \item {
+        $\forall x \in B:\begin{cases}
+            (a,a) = 0 \Leftrightarrow x = \theta \\
+            (a,a) > 0 \Leftrightarrow x \ne \theta
+          \end{cases}$
+        \begin{align*}
+          \ \begin{pmatrix}l & m\end{pmatrix}
+          \mtx
+          \begin{pmatrix}l \\ m\end{pmatrix}=                               \\
+          \ \begin{pmatrix}\mtxa l & \mtxb m\end{pmatrix}
+          \begin{pmatrix}l \\ m\end{pmatrix} =                              \\
+          \mtxa l^2 + \mtxb m^2                                             \\
+          \forall l:l^2 \geqslant 0,\ \forall m:m^2 \geqslant 0 \Rightarrow \\
+          \Rightarrow
+          \begin{cases}
+            (a,a) = 0 \Leftrightarrow x = \theta \\
+            (a,a) > 0 \Leftrightarrow x \ne \theta
+          \end{cases}
+        \end{align*}
+        }
+\end{enumerate}
+
+\textbf{Таким образом предположение верно и $B$ - евклидово пространство.}
