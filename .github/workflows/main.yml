@@ -16,7 +16,7 @@ jobs:
           latexmk_use_xelatex: true
           args: -jobname=beer-algebra -pdf -file-line-error -halt-on-error -interaction=nonstopmode
           post_compile: "latexmk -c"
-          extra_fonts: ./resources/fonts/*.ttf
+          # extra_fonts: ./resources/fonts/*.ttf
   
   upload:
     runs-on: ubuntu-latest
