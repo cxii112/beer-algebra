@@ -9,21 +9,25 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
-% \usepackage{amsfonts}
 
 %%xelatex
 \usepackage{fontspec}
+% \usepackage{unicode-math}
+
 \defaultfontfeatures{Scale=MatchLowercase}
 \setmainfont[
   Path= resources/fonts/Nunito/,
-        Scale=1,
-        Extension= .ttf,
-        UprightFont=*-Light,
-        BoldFont=*-Regular,
-        ItalicFont=*-LightItalic,
-        BoldItalicFont=*-Regular
-]{Nunito}
+  Scale=1,
+  Extension= .ttf,
+  UprightFont=*-Light,
+  BoldFont=*-Regular,
+  ItalicFont=*-LightItalic,
+  BoldItalicFont=*-Regular
+  ]{Nunito}
 
+% \usepackage{amsmath}
+\usepackage[mathrm=sym]{unicode-math}
+% \setmathfont{AMS Math}
 
 \title{Алгебра пива}
 \author{Дмитрий Ляховой}
@@ -31,6 +35,7 @@
 \begin{document}
 \maketitle
 \input{abstract.tex}
+\input{entroduction.tex}
 \input{set.tex}
 \input{lineal-space/linear-space.tex}
 \input{dot-product/dot-product.tex}
