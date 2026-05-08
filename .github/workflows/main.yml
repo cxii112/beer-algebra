@@ -1,38 +1,70 @@
-name: Release
+name: Build LaTeX PDF
+
 on:
   push:
     tags:
-      - '*.*.*'
+      - "*" # запуск при создании любого тега
+  workflow_dispatch:
+    inputs:
+      entry_point:
+        description: "Main TeX file name (without .tex extension)"
+        required: true
+        default: "main"
+
+env:
+  # Значение по умолчанию для сборки по тегу (можно изменить при необходимости)
+  MAIN_TEX: main
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: xu-cheng/latex-action@v2
-        with:
-          root_file: main.tex
-          compiler: latexmk
-          latexmk_use_xelatex: true
-          args: -jobname=beer-algebra -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-          post_compile: "latexmk -c"
-          # extra_fonts: ./resources/fonts/*.ttf
-      - uses: actions/upload-artifact@v3
-        with:
-          name: beer-algebra
-          path: ./beer-algebra.pdf
+    # Используем официальный Docker-образ с полным TeX Live (включает все пакеты,
+    # поддержку русского языка, XeLaTeX, LuaLaTeX, biber и т.д.)
+    container: texlive/texlive:latest
 
-  release:
-    runs-on: ubuntu-latest
-    needs: [build]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Determine entry point
+        id: entry
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "name=${{ github.event.inputs.entry_point }}" >> $GITHUB_OUTPUT
+          else
+            echo "name=${{ env.MAIN_TEX }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Compile LaTeX with latexmk
+        run: |
+          latexmk -pdf -lualatex \
+            -interaction=nonstopmode \
+            -halt-on-error \
+            ${{ steps.entry.outputs.name }}
+        # latexmk автоматически запустит bibtex/biber и сделает нужное число проходов
+
+      - name: Generate output PDF name
+        id: pdfname
+        run: |
+          ENTRY="${{ steps.entry.outputs.name }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # ручной запуск: добавляем суффикс -manual-<дата-время> (UTC)
+            DATETIME=$(date -u +%Y%m%d-%H%M)
+            PDF_NAME="${ENTRY}-manual-${DATETIME}.pdf"
+          else
+            # сборка по тегу: используем имя тега (GITHUB_REF_NAME)
+            TAG="${GITHUB_REF_NAME}"
+            PDF_NAME="${ENTRY}-${TAG}.pdf"
+          fi
+          echo "pdf=$PDF_NAME" >> $GITHUB_OUTPUT
+
+      - name: Rename PDF file
+        run: mv "${ENTRY}.pdf" "${{ steps.pdfname.outputs.pdf }}"
+        env:
+          ENTRY: ${{ steps.entry.outputs.name }}
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: beer-algebra
-      - uses: softprops/action-gh-release@v1
-        with:
-          body_path: README.md
-          files: |
-            beer-algebra.pdf
-            README.md
+          name: compiled-pdf
+          path: ${{ steps.pdfname.outputs.pdf }}
