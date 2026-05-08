@@ -23,6 +23,11 @@ jobs:
     container: texlive/texlive:latest
 
     steps:
+      - name: Install Liberation fonts
+        run: |
+          apt-get update
+          apt-get install -y fonts-liberation2
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
