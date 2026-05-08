@@ -1,7 +1,7 @@
 ## IDE
-./.vscode
-./.zed
-./.idea
+.vscode/
+.zed/
+.idea/
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
