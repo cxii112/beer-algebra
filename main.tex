@@ -1,33 +1,30 @@
 \documentclass{article}
 
-\usepackage[a4paper, margin=1.5cm]{geometry}
+% (Опционально) настройка полей
+\usepackage{geometry}
+\geometry{
+    legalpaper,
+    left=2cm,
+    right=2cm,
+    top=1.25cm,
+    bottom=1.5cm
+}
+
 \usepackage{setspace}
-\onehalfspacing
+\singlespacing
 \usepackage{indentfirst}
 
-\usepackage[main=russian, english]{babel}
+% Шрифты и язык (XeLaTeX)
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{russian}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont{Liberation Mono}
 
 \usepackage{amsmath}
 \usepackage{amssymb}
 
-%%xelatex
-\usepackage{fontspec}
-% \usepackage{unicode-math}
-
-\defaultfontfeatures{Scale=MatchLowercase}
-\setmainfont[
-  Path= resources/fonts/Nunito/,
-  Scale=1,
-  Extension= .ttf,
-  UprightFont=*-Light,
-  BoldFont=*-Regular,
-  ItalicFont=*-LightItalic,
-  BoldItalicFont=*-Regular
-  ]{Nunito}
-
-% \usepackage{amsmath}
-\usepackage[mathrm=sym]{unicode-math}
-% \setmathfont{AMS Math}
 
 \title{Алгебра пива}
 \author{Дмитрий Ляховой}
