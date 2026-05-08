@@ -37,7 +37,7 @@ jobs:
 
       - name: Compile LaTeX with latexmk
         run: |
-          latexmk -pdf -lualatex \
+          latexmk -pdf -xelatex \
             -interaction=nonstopmode \
             -halt-on-error \
             ${{ steps.entry.outputs.name }}
